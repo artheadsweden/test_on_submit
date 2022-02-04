@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="the-form" action="/" method="POST">
+        <!-- Det är kan vara ditt formulär där du väljer länder -->
+        <input type="text" name="something" placeholder="Somthing" />
+        <!-- och här slänger vi in gömd inpu -->
+        <input name="the_list" type="hidden" id="the-hidden" />
+        <!-- Här är din Next-knapp -->
+        <input type="submit" value="Next"/>
+    </form>
+
+
+    <script>
+        // Detta är din lista med länder
+        let selectedCountries = ["Denmark", "Sweden"];
+
+        // Vi kör denna när formuläret skall skickas
+        document.getElementById("the-form").onsubmit = () => {
+            // Nu slänger vi in din lista som en json i det gömda input-fältet
+            document.getElementById("the-hidden").value = JSON.stringify(selectedCountries);
+        }
+
+    </script>
+</body>
+</html>
